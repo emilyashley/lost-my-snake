@@ -3,7 +3,7 @@
 <head>
   <% include ../partials/header.ejs %>
   <style>
-   #map { height: 200px; width: 35%;}
+   #map { height: 400px; width: 400px;}
   </style>
 </head>
 
@@ -14,31 +14,41 @@
 <div class="container">
 <h2>I've Lost A Snake</h2>
 
-<form action="/test" method="post">
+  <form action="/test" method="post">
     <div>
-      <label>Owner Name:</label>
-      <input id="owner_name" type="text" name="owner_name">
-</div>
-      <label>Snake Name:</label>
-      <input id="snake_name" type="text" name="snake_name">
-
-      <label>Phone:</label>
-      <input id="contact_phone" type="text" name="contact_phone">
-
-      <label>E-mail:</label>
-      <input id="contact_email" type="text" name="contact_email">
-
-      <label>Location (lat/long):</label>
-      <input id="latitude" type="text" name="latitude">
-      <input id="longitude" type="text" name="longitude">
+        <label>Owner Name:</label>
+        <input id="owner_name" type="text" name="owner_name">
     </div>
+    <div>
+        <label>Snake Name:</label>
+        <input id="snake_name" type="text" name="snake_name">
+    </div>
+    <div>
+        <label>Phone:</label>
+        <input id="contact_phone" type="text" name="contact_phone">
+    </div>
+    <div>
+        <label>E-mail:</label>
+        <input id="contact_email" type="text" name="contact_email">
+    </div>
+    <div>
+        <label>Location (lat/long):</label>
+        <input id="latitude" type="text" name="latitude" placeholder="click on map">
+        <input id="longitude" type="text" name="longitude" placeholder="click on map">
+    </div>
+  </form>
+</div> 
 
 <div id="map"></div>
 <% include ../partials/map.ejs %>
 
-<input type="submit" value="REPORT">
-</form>
-</div>
+<script>
+  $('map').on('click', function(e) {
+    console.log(e.latlng.lat, e.latlng.lng);
+  //  var lng = e.latlng.lng;
+    //$('#latitude').val(lng);
+   })
+</script>
 
 </body>
 </html>
