@@ -2,6 +2,9 @@
 <html>
 <head>
   <% include ../partials/header.ejs %>
+    <style>
+   #map { height: 400px; width: 600px;}
+  </style>
 </head>
 
 <body>
@@ -9,17 +12,74 @@
 <% include ../partials/nav.ejs %>
 
 <div class="container">
-<h2>Test Submission</h2>
+<h2>I've Seen A Snake</h2>
 
-<form action="/test" method="post">
+  <form action="/seen" method="post">
+      
+
+      <div> <label>Snake Species:</label>
+        <select class="form-control" id="snake_species">
+          <option>Scarlet King Snake</option>
+          <option>Eastern Milk Snake</option>
+          <option>Corn Snake</option>
+          <option>Brown Water Snake</option>
+        </select>
+      </div>
+      
+      <div>
+        <label>Color:</label>
+       <input type="checkbox" value=""> tan </input>
+       <input type="checkbox" value=""> black </input>
+       <input type="checkbox" value=""> gray </input>
+        <input type="checkbox" value=""> yellow </input>
+       <input type="checkbox" value=""> red </input>
+       <input type="checkbox" value=""> dark olive </input>
+      </div>
+
+      <div>
+        <label>Size:</label>
+        <input type="checkbox" value=""> small </input>
+        <input type="checkbox" value=""> medium </input>
+        <input type="checkbox" value=""> large </input>
+      </div>
+
+      <div>
+        <label>Tail:</label>
+       <input type="checkbox" value=""> tapered </input>
+       <input type="checkbox" value=""> horned </input>
+       <input type="checkbox" value=""> rattle </input>
+      </div>
+
+      <div>
+        <label>Pattern:</label>
+        <input type="checkbox" value=""> blotched </input>
+       <input type="checkbox" value=""> banded </input>
+       <input type="checkbox" value=""> spotted </input>
+       <input type="checkbox" value=""> linear multicolor </input>
+       <input type="checkbox" value=""> striped </input>
+       <input type="checkbox" value=""> no pattern </input>
+      </div>
+
     <div>
-      <label for="name">Name:</label>
-      <input id="name" type="text" name="name">
+        <label>Location (lat/long):</label>
+        <input id="latitude" type="text" name="latitude" placeholder="click on map">
+        <input id="longitude" type="text" name="longitude" placeholder="click on map">
     </div>
-      <input type="submit" value="Test">
-</form>
+  </form>
+</div> 
 
-</div>
+<div id="map"></div>
+<% include ../partials/map.ejs %>
 
+<script>
+  map.on('click', function(e) {
+    console.log(e.latlng.lat, e.latlng.lng);
+    $('#latitude').val(e.latlng.lat);
+    $('#longitude').val(e.latlng.lng);
+   });
+</script>
+
+<!-- <p>Good news: our database thinks you've seen a (SNAKE SPECIES) They're nonvenemous blah blah blah but legal don't encourage. We'll check our records for domestic snakes that may be lost</p>
+ -->
 </body>
 </html>

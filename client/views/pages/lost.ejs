@@ -3,7 +3,7 @@
 <head>
   <% include ../partials/header.ejs %>
   <style>
-   #map { height: 400px; width: 400px;}
+   #map { height: 400px; width: 600px;}
   </style>
 </head>
 
@@ -14,22 +14,30 @@
 <div class="container">
 <h2>I've Lost A Snake</h2>
 
-  <form action="/test" method="post">
+  <form action="/lost" method="post">
+      <div> <label>Snake Species:</label>
+        <select class="form-control" id="snake_species">
+          <option>Scarlet King Snake</option>
+          <option>Eastern Milk Snake</option>
+          <option>Corn Snake</option>
+          <option>Brown Water Snake</option>
+        </select>
+    </div>
     <div>
         <label>Owner Name:</label>
-        <input id="owner_name" type="text" name="owner_name">
+        <input id="owner_name" class="form-control" type="text" name="owner_name">
     </div>
     <div>
         <label>Snake Name:</label>
-        <input id="snake_name" type="text" name="snake_name">
+        <input id="snake_name" class="form-control" type="text" name="snake_name">
     </div>
     <div>
         <label>Phone:</label>
-        <input id="contact_phone" type="text" name="contact_phone">
+        <input id="contact_phone" class="form-control" type="text" name="contact_phone">
     </div>
     <div>
         <label>E-mail:</label>
-        <input id="contact_email" type="text" name="contact_email">
+        <input id="contact_email" class="form-control" type="text" name="contact_email">
     </div>
     <div>
         <label>Location (lat/long):</label>
@@ -43,11 +51,11 @@
 <% include ../partials/map.ejs %>
 
 <script>
-  $('map').on('click', function(e) {
+  map.on('click', function(e) {
     console.log(e.latlng.lat, e.latlng.lng);
-  //  var lng = e.latlng.lng;
-    //$('#latitude').val(lng);
-   })
+    $('#latitude').val(e.latlng.lat);
+    $('#longitude').val(e.latlng.lng);
+   });
 </script>
 
 </body>
