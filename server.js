@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 
 app.set('port', (process.env.PORT || 5000));
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/client')); //public
 // Parse JSON (uniform resource locators)
 app.use(bodyParser.json());
 // Parse forms (signup/login)
@@ -21,6 +21,14 @@ app.set('view engine', 'ejs');
 app.get('/', function(request, response) {
   response.render('pages/index')
 });
+
+app.get('/report', function(request, response){
+  response.render('pages/guidelines')
+})
+
+app.get('/map', function(request, response){
+    response.render('pages/mapview')
+})
 
 
 //test form submission for single variable entry to db
@@ -55,7 +63,7 @@ app.route('/lost')
         if (err)
         { console.error(err); response.send("Error " + err); }
         else
-        { response.redirect('/posts'); } //redirect to sumbissions
+        { response.redirect('/posts'); } //redirect to confirmation of submission
       });
     })
 });
@@ -72,15 +80,10 @@ app.route('/seen')
         if (err)
         { console.error(err); response.send("Error " + err); }
         else
-        { response.redirect('/sightings'); } //redirect to sumbissions
+        { response.redirect('/sightings'); } //redirect to confirmation of submission
       });
     })
 });
-
-app.route('/report')
-  .get(function(request, response){
-    response.render('pages/guidelines')
-})
 
 
 // requests from database for all snake, lost, and sighted tables
@@ -125,8 +128,6 @@ app.get('/posts', function (request, response) {
     });
   });
 })
-
-
 
 
 app.listen(app.get('port'), function() {

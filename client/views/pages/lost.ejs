@@ -2,6 +2,9 @@
 <html>
 <head>
   <% include ../partials/header.ejs %>
+  <style>
+   #map { height: 400px; width: 400px;}
+  </style>
 </head>
 
 <body>
@@ -9,17 +12,43 @@
 <% include ../partials/nav.ejs %>
 
 <div class="container">
-<h2>Test Submission</h2>
+<h2>I've Lost A Snake</h2>
 
-<form action="/test" method="post">
+  <form action="/test" method="post">
     <div>
-      <label for="name">Name:</label>
-      <input id="name" type="text" name="name">
+        <label>Owner Name:</label>
+        <input id="owner_name" type="text" name="owner_name">
     </div>
-      <input type="submit" value="Test">
-</form>
+    <div>
+        <label>Snake Name:</label>
+        <input id="snake_name" type="text" name="snake_name">
+    </div>
+    <div>
+        <label>Phone:</label>
+        <input id="contact_phone" type="text" name="contact_phone">
+    </div>
+    <div>
+        <label>E-mail:</label>
+        <input id="contact_email" type="text" name="contact_email">
+    </div>
+    <div>
+        <label>Location (lat/long):</label>
+        <input id="latitude" type="text" name="latitude" placeholder="click on map">
+        <input id="longitude" type="text" name="longitude" placeholder="click on map">
+    </div>
+  </form>
+</div> 
 
-</div>
+<div id="map"></div>
+<% include ../partials/map.ejs %>
+
+<script>
+  $('map').on('click', function(e) {
+    console.log(e.latlng.lat, e.latlng.lng);
+  //  var lng = e.latlng.lng;
+    //$('#latitude').val(lng);
+   })
+</script>
 
 </body>
 </html>
