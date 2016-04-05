@@ -1,0 +1,81 @@
+var samplesnakes = {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "data1": "a",
+        "data2": 1,
+        "data3": "z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.04600524902344,
+          29.96430413440542
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "data1": "s",
+        "data2": 3,
+        "popupContent": "This is where the Rockies play!",
+        "data3": "t"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.11449813842773,
+          29.918786451970437
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "data1": "d",
+        "data2": 2,
+        "data3": "d"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.09613037109375,
+          29.983784093718395
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "data1": "g",
+        "data2": 5,
+        "data3": "f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.09990692138672,
+          29.98660911411832
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "data1": "q",
+        "data2": 6,
+        "data3": "v"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.09801864624023,
+          29.983932781006313
+        ]
+      }
+    }
+  ]
+}

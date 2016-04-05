@@ -22,7 +22,7 @@
           <option>Corn Snake</option>
           <option>Brown Water Snake</option>
         </select>
-    </div>
+      </div>
     <div>
         <label>Owner Name:</label>
         <input id="owner_name" class="form-control" type="text" name="owner_name">
@@ -53,9 +53,13 @@
 <script>
   map.on('click', function(e) {
     console.log(e.latlng.lat, e.latlng.lng);
+
     $('#latitude').val(e.latlng.lat);
     $('#longitude').val(e.latlng.lng);
+
+    var marker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
    });
+
 </script>
 
 </body>
