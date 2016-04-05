@@ -77,6 +77,11 @@ app.route('/seen')
     })
 });
 
+app.route('/report')
+  .get(function(request, response){
+    response.render('pages/guidelines')
+})
+
 
 // requests from database for all snake, lost, and sighted tables
 app.get('/snake', function (request, response) {
