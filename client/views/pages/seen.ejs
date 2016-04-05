@@ -70,14 +70,8 @@
 
 <div id="map"></div>
 <% include ../partials/map.ejs %>
+<% include ../partials/mapclick.ejs %>
 
-<script>
-  map.on('click', function(e) {
-    console.log(e.latlng.lat, e.latlng.lng);
-    $('#latitude').val(e.latlng.lat);
-    $('#longitude').val(e.latlng.lng);
-   });
-</script>
 
 <!-- <p>Good news: our database thinks you've seen a (SNAKE SPECIES) They're nonvenemous blah blah blah but legal don't encourage. We'll check our records for domestic snakes that may be lost</p>
  -->

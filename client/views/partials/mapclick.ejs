@@ -1,0 +1,7 @@
+<script>
+  map.on('click', function(e) {
+    $('#latitude').val(e.latlng.lat);
+    $('#longitude').val(e.latlng.lng);
+    var marker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
+   });
+</script>

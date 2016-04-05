@@ -49,18 +49,7 @@
 
 <div id="map"></div>
 <% include ../partials/map.ejs %>
-
-<script>
-  map.on('click', function(e) {
-    console.log(e.latlng.lat, e.latlng.lng);
-
-    $('#latitude').val(e.latlng.lat);
-    $('#longitude').val(e.latlng.lng);
-
-    var marker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
-   });
-
-</script>
+<% include ../partials/mapclick.ejs %>
 
 </body>
 </html>
