@@ -1,0 +1,13 @@
+{
+  "name": "Lost-My-Snake",
+  "version": "0.0.0",
+  "description": "An app to find and report snakes on the run",
+  "main": "server.js",
+  "repository": "",
+  "author": "Emily Ashley <ohemilyashley@gmail.com>",
+  "dependencies": {
+    "pg": "4.x",
+    "ejs": "2.3.3",
+    "express": "4.13.3"
+  }
+}
