@@ -9,13 +9,14 @@
 <% include ../partials/nav.ejs %>
 
 <div class="container">
-<h2>Database Results</h2>
+<h2>Common Snake Species</h2>
 
-<ul>
+<table>
+    <th><td>Common Name</td><td>Venemous</td><td>Length</td><td>Body Shape</td><td>Head Shape</td><td>Tail</td></th>
     <% results.forEach(function(r) { %>
-        <li><%= r.id %> - <%= r.name %></li>
+        <tr><td><%= r.common_name %></td><td><%= r.venemous %></td><td><%= r.length %></td><td><%= r.body_shape %></td><td><%= r.head_shape %></td><td><%= r.tail_end %></td></tr>
     <% }); %>
-</ul>
+</table>
 
 </div>
 
