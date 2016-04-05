@@ -56,9 +56,15 @@ app.route('/lost')
     response.render('pages/lost')
   })
   .post(function(request, response){
-    var name = request.body.name;
+    var species = request.body.snake_species;
+    var owner = request.body.owner_name;
+    var snake = request.body.snake_name;
+    var phone = request.body.contact_phone;
+    var email = request.body.contact_email;
+    var geometry = [request.body.latitude,request.body.longitude];
     pg.connect(process.env.DATABASE_URL, function(err, client, done){
-      client.query('INSERT INTO test_table(name) VALUES ($1)', [name], function(err, result) {
+      client.query('INSERT INTO lost(snake_species_common, owner_name, snake_name, contact_phone, contact_email, geometry) VALUES ($1, $2, $3, $4, $5, $6)', 
+        [species, owner, snake, phone, email, geometry], function(err, result) {
         done();
         if (err)
         { console.error(err); response.send("Error " + err); }
