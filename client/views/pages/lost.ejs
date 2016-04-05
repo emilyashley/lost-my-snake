@@ -2,6 +2,9 @@
 <html>
 <head>
   <% include ../partials/header.ejs %>
+  <style>
+   #map { height: 200px; width: 35%;}
+  </style>
 </head>
 
 <body>
@@ -9,16 +12,32 @@
 <% include ../partials/nav.ejs %>
 
 <div class="container">
-<h2>Test Submission</h2>
+<h2>I've Lost A Snake</h2>
 
 <form action="/test" method="post">
     <div>
-      <label for="name">Name:</label>
-      <input id="name" type="text" name="name">
-    </div>
-      <input type="submit" value="Test">
-</form>
+      <label>Owner Name:</label>
+      <input id="owner_name" type="text" name="owner_name">
 
+      <label>Snake Name:</label>
+      <input id="snake_name" type="text" name="snake_name">
+
+      <label>Phone:</label>
+      <input id="contact_phone" type="text" name="contact_phone">
+
+      <label>E-mail:</label>
+      <input id="contact_email" type="text" name="contact_email">
+
+      <label>Location (lat/long):</label>
+      <input id="latitude" type="text" name="latitude">
+      <input id="longitude" type="text" name="longitude">
+    </div>
+
+<div id="map"></div>
+<% include ../partials/map.ejs %>
+
+<input type="submit" value="REPORT">
+</form>
 </div>
 
 </body>
