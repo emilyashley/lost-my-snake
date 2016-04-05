@@ -31,7 +31,7 @@ app.get('/map', function(request, response){
 })
 
 
-test form submission for single variable entry to db
+//test form submission for single variable entry to db
 app.route('/test')
   .get(function(request, response){
     response.render('pages/test')
