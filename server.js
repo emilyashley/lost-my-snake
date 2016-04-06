@@ -64,7 +64,7 @@ app.route('/lost')
     var lat = request.body.latitude;
     var long = request.body.longitude;
     pg.connect(process.env.DATABASE_URL, function(err, client, done){
-      client.query('INSERT INTO lost(snake_species_common, owner_name, snake_name, contact_phone, contact_email, location_lat, location_long) VALUES ($1, $2, $3, $4, $5, $6)', 
+      client.query('INSERT INTO lost(snake_species_common, owner_name, snake_name, contact_phone, contact_email, location_lat, location_long) VALUES ($1, $2, $3, $4, $5, $6, $7)', 
         [species, owner, snake, phone, email, lat, long], function(err, result) {
         done();
         if (err)
