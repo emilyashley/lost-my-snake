@@ -61,10 +61,11 @@ app.route('/lost')
     var snake = request.body.snake_name;
     var phone = request.body.contact_phone;
     var email = request.body.contact_email;
-    var geometry = [request.body.latitude,request.body.longitude];
+    var lat = request.body.latitude;
+    var long = request.body.longitude;
     pg.connect(process.env.DATABASE_URL, function(err, client, done){
-      client.query('INSERT INTO lost(snake_species_common, owner_name, snake_name, contact_phone, contact_email, geometry) VALUES ($1, $2, $3, $4, $5, $6)', 
-        [species, owner, snake, phone, email, geometry], function(err, result) {
+      client.query('INSERT INTO lost(snake_species_common, owner_name, snake_name, contact_phone, contact_email,  location_lat, location_long) VALUES ($1, $2, $3, $4, $5, $6)', 
+        [species, owner, snake, phone, email, lat, long], function(err, result) {
         done();
         if (err)
         { console.error(err); response.send("Error " + err); }
