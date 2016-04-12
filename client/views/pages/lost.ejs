@@ -15,8 +15,10 @@
 <h2>I've Lost A Snake</h2>
 
   <form action="/lost" method="post">
+<<<<<<< HEAD
       <div> <label>Snake Species:</label>
         <select class="form-control" id="snake_species" name="snake_species">
+>>>>>>> c3ae3b2d9c7d38397cb409829038347bde2f6427
           <option>Scarlet King Snake</option>
           <option>Eastern Milk Snake</option>
           <option>Corn Snake</option>
@@ -43,24 +45,15 @@
         <label>Location (lat/long):</label>
         <input id="latitude" type="text" name="latitude" placeholder="click on map">
         <input id="longitude" type="text" name="longitude" placeholder="click on map">
+        <input type="submit" value="Send">
     </div>
+
   </form>
 </div> 
 
 <div id="map"></div>
 <% include ../partials/map.ejs %>
-
-<script>
-  map.on('click', function(e) {
-    console.log(e.latlng.lat, e.latlng.lng);
-
-    $('#latitude').val(e.latlng.lat);
-    $('#longitude').val(e.latlng.lng);
-
-    var marker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
-   });
-
-</script>
+<% include ../partials/mapclick.ejs %>
 
 </body>
 </html>
