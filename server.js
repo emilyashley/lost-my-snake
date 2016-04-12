@@ -7,9 +7,7 @@ var bodyParser = require('body-parser');
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/client')); //public
-// Parse JSON (uniform resource locators)
 app.use(bodyParser.json());
-// Parse forms (signup/login)
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
@@ -36,13 +34,13 @@ app.route('/test')
   .get(function(request, response){
     response.render('pages/test')
   })
-  .post(function(request, response){
+  .post(function(request, response){
     var name = request.body.name;
     pg.connect(process.env.DATABASE_URL, function(err, client, done){
       client.query('INSERT INTO test_table(name) VALUES ($1)', [name], function(err, result) {
         done();
         if (err)
-        { console.error(err); response.send("Error " + err); }
+        { console.error(err); response.send("oops errrrr "); }
         else
         { response.redirect('/posts'); } //redirect to sumbissions
       });
@@ -61,7 +59,7 @@ app.route('/lost')
       client.query('INSERT INTO test_table(name) VALUES ($1)', [name], function(err, result) {
         done();
         if (err)
-        { console.error(err); response.send("Error " + err); }
+        { console.error(err); response.send("oops errrrr"); }
         else
         { response.redirect('/posts'); } //redirect to confirmation of submission
       });
@@ -78,7 +76,7 @@ app.route('/seen')
       client.query('INSERT INTO test_table(name) VALUES ($1)', [name], function(err, result) {
         done();
         if (err)
-        { console.error(err); response.send("Error " + err); }
+        { console.error(err); response.send("oops errrrr"); }
         else
         { response.redirect('/sightings'); } //redirect to confirmation of submission
       });
@@ -90,11 +88,11 @@ app.route('/seen')
 app.get('/snake', function (request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     if (err)
-       { console.error(err); response.send("Error " + err); }
+       { console.error(err); response.send("oops errrrr "); }
     client.query('SELECT * FROM snake', function(err, result) {
       done();
       if (err)
-       { console.error(err); response.send("Error " + err); }
+       { console.error(err); response.send("oops errrrr "); }
       else
        { response.render('pages/snake', {results: result.rows} ); }
     });
@@ -104,11 +102,11 @@ app.get('/snake', function (request, response) {
 app.get('/sightings', function (request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     if (err)
-       { console.error(err); response.send("Error " + err); }
+       { console.error(err); response.send("oops errrrr "); }
     client.query('SELECT * FROM test_table', function(err, result) {
       done();
       if (err)
-       { console.error(err); response.send("Error " + err); }
+       { console.error(err); response.send("oops errrrr "); }
       else
        { response.render('pages/sightings', {results: result.rows} ); }
     });
