@@ -34,7 +34,7 @@ app.route('/test')
   .get(function(request, response){
     response.render('pages/test')
   })
-  .post(function(request, response){
+  .post(function(request, response){
     var name = request.body.name;
     pg.connect(process.env.DATABASE_URL, function(err, client, done){
       client.query('INSERT INTO test_table(name) VALUES ($1)', [name], function(err, result) {
